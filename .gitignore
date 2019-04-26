@@ -1,0 +1,4 @@
+*_pm.h
+*.d
+*.so
+*.so.dSYM

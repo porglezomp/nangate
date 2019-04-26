@@ -1,0 +1,4 @@
+plugin -i nangate.so
+read_verilog -sv example/example.sv
+synth_nan -top hello
+synth_ice40 -noflatten -top hello

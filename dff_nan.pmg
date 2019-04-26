@@ -1,0 +1,19 @@
+match dff
+    // @TODO: Support more DFF types
+    select dff->type == $_DFF_P_
+endmatch
+
+match input
+    select input->type == \fp3_to_bit
+    index <SigSpec> port(input, \Y) === port(dff, \D)
+    optional
+endmatch
+
+match output
+    select output->type == \bit_to_fp3
+    index <SigSpec> port(output, \A) === port(dff, \Q)
+    optional
+endmatch
+
+if (!input and !output)
+    reject;

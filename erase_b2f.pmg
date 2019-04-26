@@ -1,0 +1,8 @@
+match base
+    select base->type == \fp3_to_bit
+endmatch
+
+match target
+    select target->type == \bit_to_fp3
+    index <SigSpec> port(target, \A) === port(base, \Y)
+endmatch

@@ -1,0 +1,9 @@
+match cvt_a
+    select cvt_a->type.in(\fp3_to_bit, \bit_to_fp3)
+endmatch
+
+match cvt_b
+    select cvt_b->type.in(\fp3_to_bit, \bit_to_fp3)
+    index <IdString> cvt_b->type === cvt_a->type
+    index <SigSpec> port(cvt_b, \A) === port(cvt_a, \A)
+endmatch
